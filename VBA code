@@ -1,0 +1,35 @@
+Public Function timediff(ByVal time1 As String, ByVal time2 As String) As String
+'Author: © Copyright 2017 Audisio Francesco **************************
+'Description: Time diffence betweem two string no time of day!!,the format of this two string is ([h]:mm:ss) like excel function
+'             time2 must be greater than time1
+Dim ore1, ore2, min1, min2, sec1, sec2, tot1, tot2, tot, ore, apsec, min, sec As Double
+Dim aladin1() As String
+Dim aladin2() As String
+'Dim time1, time2 As String
+'genero secondi totali
+aladin1 = Split(time1, ":")
+    ore1 = Val(aladin1(0)) 'Hours
+    ore1 = ore1 * 3600
+    min1 = Val(aladin1(1)) 'min
+    min1 = min1 * 60
+    sec1 = Val(aladin1(2)) 'sec
+    sec1 = sec1
+aladin2 = Split(time2, ":")
+    ore2 = Val(aladin2(0)) 'Hours
+    ore2 = ore2 * 3600
+    min2 = Val(aladin2(1)) 'min
+    min2 = min2 * 60
+    sec2 = Val(aladin2(2)) 'sec
+    sec2 = sec2
+'prendo i totali
+tot1 = ore1 + min1 + sec1
+tot2 = ore2 + min2 + sec2
+tot = tot2 - tot1
+
+ore = Int(tot / 3600)
+apsec = tot - (3600 * ore)
+min = Int(apsec / 60)
+sec = apsec - (min * 60)
+result = (ore & ":" & min & ":" & sec)
+timediff = result
+End Function
